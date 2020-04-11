@@ -215,7 +215,9 @@ function _M.singlematch(query)
     query.scope     = 'subtree';
 
     for dn, attribs in ld:search(query) do
-        attribs.dn = dn;
+        if attribs then
+            attribs.dn = dn;
+        end
         return attribs;
     end
 end
